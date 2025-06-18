@@ -3,6 +3,9 @@ package com.ecommerce;
 public class QuantityObserver implements OrderObserver {
     @Override
     public void update(Order order) {
-        // To be implemented
+        if (order.getTotalQuantiy() > 5) {
+            order.setShippingCost(0);
+            order.updateOrderPrice();
+        }
     }
 }
