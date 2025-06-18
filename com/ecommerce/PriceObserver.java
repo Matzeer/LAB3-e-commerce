@@ -1,8 +1,14 @@
 package com.ecommerce;
 
 public class PriceObserver implements OrderObserver {
+
+    private boolean isApplied = false;
+
     @Override
     public void update(Order order) {
-        // To be implemented
+        if (order.getTotalPrice() > 200 && isApplied == false) {
+            order.setDiscount(20);
+            this.isApplied = true;
+        }
     }
 }
